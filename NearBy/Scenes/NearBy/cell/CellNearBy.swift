@@ -19,6 +19,7 @@ class CellNearBy : UITableViewCell {
         let l = UIImageView()
         l.contentMode = .scaleAspectFill
         l.clipsToBounds = true
+        l.image = #imageLiteral(resourceName: "placeholder")
         return l
     }()
     
