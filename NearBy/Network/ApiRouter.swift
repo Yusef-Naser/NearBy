@@ -15,18 +15,18 @@ public protocol URLRequestConvertible {
 enum ApiRouter : URLRequestConvertible {
     
     case getPlaces (data : [String : String])
-    
+    case getImagesPlace (placeID : String)
     
     private var Methods : String {
         switch self {
-        case .getPlaces  :
+        case .getPlaces  , .getImagesPlace :
             return "GET"
         }
     }
     
     private var Headers : [String : String] {
         switch self {
-        case .getPlaces :
+        case .getPlaces , .getImagesPlace :
             return [
                 "Accept" : "application/json",
                 Constants.Parameters.Authorization : Constants.Auth
@@ -39,6 +39,8 @@ enum ApiRouter : URLRequestConvertible {
         case .getPlaces(let data ):
             let s = changeDictionaryToQueryURL(dic: data )
            return "/search?\(s)"
+        case .getImagesPlace(let placeID) :
+            return "/\(placeID)/photos"
         }
     }
     

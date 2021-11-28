@@ -8,7 +8,7 @@
 
 class NearByInteractor {
     
-    func getVenues (lat : Double , lng : Double , comepltion : @escaping CompletionHandler<ModelPlaces>) {
+    func getPlaces (lat : Double , lng : Double , comepltion : @escaping CompletionHandler<ModelPlaces>) {
         let data: [String: String] = [
             Constants.Parameters.VERSIONING : Constants.VERSIONING ,
             Constants.Parameters.latitude_longitude : "\(lat),\(lng)"
@@ -25,6 +25,19 @@ class NearByInteractor {
             }
         }
         
+    }
+    
+    func getPlaceImages (placeID : String , completion : @escaping CompletionHandler<[ModelPlaceImages]>) {
+        ApiClient<[ModelPlaceImages]>.performRequest(route: .getImagesPlace(placeID: placeID )) { result , statusCode in
+            switch result {
+            case .success(let data) :
+                completion(data , nil, statusCode)
+                return
+            case .error(let error) :
+                completion(nil, error, statusCode)
+                return
+            }
+        }
     }
     
 }

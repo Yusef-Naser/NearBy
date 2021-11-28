@@ -61,3 +61,32 @@ extension UIScrollView {
         return r
     }
 }
+
+var imageCashes = NSCache<AnyObject , AnyObject>()
+
+extension UIImageView {
+    
+    func imageFromServerURL(urlString: String) {
+        if let image = imageCashes.object(forKey: urlString as NSString) {
+            self.image = image as? UIImage
+            return
+        }
+        let session = URLSession.shared.dataTask(with: NSURL(string: urlString)! as URL, completionHandler: { (data, response, error) -> Void in
+            DispatchQueue.main.async(execute: { () -> Void in
+                if error != nil {
+                    return
+                }
+                if let data = data , let image = UIImage(data: data) {
+                    imageCashes.setObject(image , forKey: urlString as NSString)
+                    self.image = image
+                }
+                    
+            })
+                
+        })
+        session.resume()
+        //return session
+           
+    }
+    
+}

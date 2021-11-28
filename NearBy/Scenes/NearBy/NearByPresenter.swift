@@ -5,10 +5,12 @@
 //  Created by Yusef Naser on 26/11/2021.
 //VC
 
+import Foundation
 
 protocol ProNearByView : StatusAPI {
     func netWorkError ()
     func fetchResults()
+    func fetchPlaceImages (index : IndexPath, firstImage : String)
 }
 
 protocol ProNearByPresetner {
@@ -18,6 +20,7 @@ protocol ProNearByPresetner {
     func getPlacesCount ()-> Int
     func configurationCellPlace (cell : CellNearByConfiguration , index : Int )
     func refreshPlaces ()
+    func getPlaceImages (placeID : String , index : IndexPath)
 }
 
 
@@ -38,7 +41,7 @@ class NearByPresenter : ProNearByPresetner {
         self.lat = lat
         self.lng = lng
         self.view?.showLoading()
-        interactor.getVenues(lat: lat , lng: lng ) { data , error, statusCode in
+        interactor.getPlaces(lat: lat , lng: lng ) { data , error, statusCode in
             self.view?.hideLoading()
             guard statusCode != -1 else {
                 self.view?.netWorkError()
@@ -69,17 +72,29 @@ class NearByPresenter : ProNearByPresetner {
         }
         cell.setPlaceName(name: place.name)
         cell.setPlaceAddress(address: place.location?.address)
-        cell.setImagePlace(image: "")
+        getPlaceImages(placeID: place.fsqID ?? "" , index: IndexPath(row: index , section: 0))
     }
     
     func refreshPlaces() {
-        interactor.getVenues(lat: lat , lng: lng ) { data , error, statusCode   in
+        interactor.getPlaces(lat: lat , lng: lng ) { data , error, statusCode   in
             self.view?.hideLoading()
             guard let results = data?.results else {
                 return
             }
             self.listResults = results
             self.view?.fetchResults()
+        }
+    }
+    
+    func getPlaceImages(placeID : String , index: IndexPath) {
+        interactor.getPlaceImages(placeID: placeID) { data , error , statusCode in
+            guard let images = data , images.count > 0 else {
+                return
+            }
+            let prefix = images[0].prefix ?? ""
+            let suffix = images[0].suffix ?? ""
+            let image = prefix + "original" + suffix
+            self.view?.fetchPlaceImages(index: index , firstImage: image )
         }
     }
     

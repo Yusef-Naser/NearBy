@@ -65,6 +65,13 @@ extension NearByVC : ProNearByView {
         mainView.tableView.backgroundView = EmptyView.setSomethingWrong()
     }
     
+    func fetchPlaceImages(index: IndexPath, firstImage: String) {
+        guard let cell = mainView.tableView.cellForRow(at: index) as? CellNearBy else {
+            return
+        }
+        cell.setImagePlace(image: firstImage)
+    }
+    
 }
 
 // 37.53

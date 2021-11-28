@@ -24,6 +24,7 @@
 		2CB8BD7E27525C2500A88628 /* CellNearBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8BD7D27525C2500A88628 /* CellNearBy.swift */; };
 		2CB8BD8027526B0F00A88628 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8BD7F27526B0F00A88628 /* LocationManager.swift */; };
 		2CB8BD822752B82A00A88628 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8BD812752B82A00A88628 /* EmptyView.swift */; };
+		2CB8BD842752EE0400A88628 /* ModelPlaceImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB8BD832752EE0400A88628 /* ModelPlaceImages.swift */; };
 		2CDAC503274EFCF400CBEF8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAC502274EFCF400CBEF8A /* AppDelegate.swift */; };
 		2CDAC505274EFCF400CBEF8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAC504274EFCF400CBEF8A /* SceneDelegate.swift */; };
 		2CDAC507274EFCF400CBEF8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAC506274EFCF400CBEF8A /* ViewController.swift */; };
@@ -50,6 +51,7 @@
 		2CB8BD7D27525C2500A88628 /* CellNearBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellNearBy.swift; sourceTree = "<group>"; };
 		2CB8BD7F27526B0F00A88628 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2CB8BD812752B82A00A88628 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		2CB8BD832752EE0400A88628 /* ModelPlaceImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPlaceImages.swift; sourceTree = "<group>"; };
 		2CDAC4FF274EFCF400CBEF8A /* NearBy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearBy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CDAC502274EFCF400CBEF8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CDAC504274EFCF400CBEF8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				2C9955AB2751BF9200325E18 /* ModelSearchVenues.swift */,
 				2C9955AD2751BFF000325E18 /* ModelVenue.swift */,
 				2CB8BD7A27525A9100A88628 /* ModelPlaces.swift */,
+				2CB8BD832752EE0400A88628 /* ModelPlaceImages.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				2C9955A0275193EE00325E18 /* Utilities.swift in Sources */,
 				2CB8BD822752B82A00A88628 /* EmptyView.swift in Sources */,
 				2C99559E2751932300325E18 /* Loader.swift in Sources */,
+				2CB8BD842752EE0400A88628 /* ModelPlaceImages.swift in Sources */,
 				2CB8BD8027526B0F00A88628 /* LocationManager.swift in Sources */,
 				2C9955AE2751BFF000325E18 /* ModelVenue.swift in Sources */,
 			);

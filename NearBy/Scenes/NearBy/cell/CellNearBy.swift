@@ -69,7 +69,7 @@ class CellNearBy : UITableViewCell {
 extension CellNearBy : CellNearByConfiguration {
     
     func setImagePlace(image: String?) {
-        
+        imagePlace.imageFromServerURL(urlString: image ?? "" )
     }
     
     func setPlaceName(name: String?) {
