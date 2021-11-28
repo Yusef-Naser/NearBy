@@ -90,3 +90,14 @@ extension UIImageView {
     }
     
 }
+
+
+extension Date {
+    
+    func getDateWithFormatePlace () -> String {
+        let formater = DateFormatter()
+        formater.dateFormat = "yyyyMMdd"
+        return formater.string(from: self)
+    }
+    
+}

@@ -5,12 +5,13 @@
 //  Created by Yusef Naser on 26/11/2021.
 //VC
 
+import Foundation
 
 class NearByInteractor {
     
     func getPlaces (lat : Double , lng : Double , comepltion : @escaping CompletionHandler<ModelPlaces>) {
         let data: [String: String] = [
-            Constants.Parameters.VERSIONING : Constants.VERSIONING ,
+            Constants.Parameters.VERSIONING : Date().getDateWithFormatePlace() ,
             Constants.Parameters.latitude_longitude : "\(lat),\(lng)"
             
         ]
